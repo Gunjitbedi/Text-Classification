@@ -1,6 +1,6 @@
 # Text Classification 
 
-This is a easy to understand script for 'Text Classfication' using SVM and Naive Bayes. 
+This is an easy to understand script for 'Text Classfication' using SVM and Naive Bayes. 
 
 The input file is also uploaded corpus.csv
 
