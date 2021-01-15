@@ -7,7 +7,7 @@ The input file is also uploaded - corpus.csv
 Refer medium link for detailed explanation
 https://medium.com/@bedigunjit/simple-guide-to-text-classification-nlp-using-svm-and-naive-bayes-with-python-421db3a72d34
 
-#Version 2: 
+# Version 2: 
 For people facing chalanges in using the models to inference on unseen data. I have adapted the code into two modules - training.py and inference.py.
 
 Below is a short description of them.
