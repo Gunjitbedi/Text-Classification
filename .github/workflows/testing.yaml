@@ -3,7 +3,7 @@ name: Merge branch to master on test success
 on:
   push:
     branches:
-      - my-branch
+      - itaimoor
 
 jobs:
   merge_branch:
