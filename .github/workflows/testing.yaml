@@ -1,0 +1,21 @@
+name: Merge branch to master on success
+
+on:
+  push:
+    branches:
+      - '*'
+
+jobs:
+  merge_branch:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Run test.py
+      run: python test.py
+      id: test_result
+    - name: Merge branch with master
+      if: steps.test_result.outcome == 'success' && github.ref != 'refs/heads/master'
+      uses: wagoid/merge-to-master-action@v1
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
