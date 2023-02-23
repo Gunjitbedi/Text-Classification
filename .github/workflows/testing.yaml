@@ -16,6 +16,20 @@ jobs:
       id: test_result
     - name: Merge branch with master
       if: steps.test_result.outcome == 'success' && github.ref != 'refs/heads/master'
-      uses: wagoid/merge-to-master-action@v1
+      uses: actions/github-script@v4
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        script: |
+          const { data } = await github.pulls.create({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            title: 'Merge branch into master',
+            head: context.ref,
+            base: 'master'
+          })
+          const merge = await github.pulls.merge({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            pull_number: data.number,
+            commit_title: 'Merge branch into master',
+            merge_method: 'squash'
+          })
