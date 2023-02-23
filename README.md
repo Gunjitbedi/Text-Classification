@@ -16,5 +16,3 @@ training.py - This will train a model on your data and save the trained LabelEnc
 inference.py - This will load these saved files on the disk and do prediction on unseen text.
 
 Feel free to play with them and adapt them further as per your requirements.
-
-changes
