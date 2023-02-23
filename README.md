@@ -17,4 +17,4 @@ inference.py - This will load these saved files on the disk and do prediction on
 
 Feel free to play with them and adapt them further as per your requirements.
 
-ch5
+ch6
