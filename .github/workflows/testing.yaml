@@ -22,3 +22,11 @@ jobs:
         git checkout master
         git merge --no-ff ${{ github.head_ref }} -m "Merge branch '${{ github.head_ref }}' into master"
         git push origin master
+    - name: Copy files to master
+      if: steps.test_result.outcome == 'success'
+      run: |
+        git checkout itaimoor
+        git checkout master -- .
+        git add .
+        git commit -m "Update files from 'itaimoor' branch"
+        git push origin master
