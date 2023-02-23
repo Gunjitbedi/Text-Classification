@@ -16,10 +16,9 @@ jobs:
     - name: Run test.py
       run: python test.py
       id: test_result
-    - name: Copy example.txt to master
+    - name: Merge branch with master
       if: steps.test_result.outcome == 'success'
       run: |
-        cp itaimoor/example.txt .
-        git add example.txt
-        git commit -m "Add example.txt from itaimoor branch"
+        git checkout master
+        git merge --no-ff ${{ github.head_ref }} -m "Merge branch '${{ github.head_ref }}' into master"
         git push origin master
